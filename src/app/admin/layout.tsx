@@ -21,7 +21,8 @@ import {
   SunIcon,
   MoonIcon,
   Bars3Icon,
-  XMarkIcon
+  XMarkIcon,
+  CircleStackIcon
 } from "@heroicons/react/24/outline";
 
 const menuItems = [
@@ -41,8 +42,26 @@ const menuItems = [
   },
   { label: "Pos System", icon: TicketIcon, href: "/admin/pos" },
   { label: "Orders", icon: ShoppingBagIcon, href: "/admin/orders", badge: "New" },
-  { label: "Stocks", icon: ShoppingBagIcon, href: "/admin/stocks", hasChevron: true },
-  { label: "Refunds", icon: ArrowPathIcon, href: "/admin/refunds", hasChevron: true },
+  { 
+    label: "Stocks", 
+    icon: CircleStackIcon, 
+    href: "/admin/stocks",
+    subItems: [
+      { label: "Add Stock", href: "/admin/stocks/add" },
+      { label: "All Locations", href: "/admin/stocks/locations" },
+    ]
+  },
+  { 
+    label: "Refunds", 
+    icon: ArrowPathIcon, 
+    href: "/admin/refunds",
+    subItems: [
+      { label: "Refund Configurations", href: "/admin/refunds/configurations" },
+      { label: "Refund Requests", href: "/admin/refunds/requests" },
+      { label: "Approved Refunds", href: "/admin/refunds/approved" },
+      { label: "Rejected Refunds", href: "/admin/refunds/rejected" },
+    ]
+  },
   { label: "Rewards & Wallet", icon: ShoppingBagIcon, href: "/admin/rewards", hasChevron: true },
 ];
 
