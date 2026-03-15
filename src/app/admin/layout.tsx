@@ -87,7 +87,15 @@ const userMenuItems = [
 const contentMenuItems = [
   { label: "Tags", icon: TagIcon, href: "/admin/tags" },
   { label: "Pages", icon: DocumentTextIcon, href: "/admin/pages" },
-  { label: "Blogs", icon: DocumentTextIcon, href: "/admin/blogs", hasChevron: true },
+  { 
+    label: "Blogs", 
+    icon: DocumentTextIcon, 
+    href: "/admin/blogs",
+    subItems: [
+      { label: "All Blogs", href: "/admin/blogs" },
+      { label: "Categories", href: "/admin/blogs/categories" },
+    ]
+  },
   { label: "Media Manager", icon: PhotoIcon, href: "/admin/media" },
 ];
 
