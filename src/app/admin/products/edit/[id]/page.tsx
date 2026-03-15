@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, use } from "react";
 import { 
   ArrowLeftIcon, 
   CloudArrowUpIcon, 
@@ -27,7 +27,8 @@ const Editor = dynamic(() => import("@tinymce/tinymce-react").then(mod => mod.Ed
   loading: () => <div className="h-[400px] bg-gray-50 animate-pulse flex items-center justify-center font-black text-gray-300 text-[10px] uppercase">Loading Editor...</div>
 });
 
-export default function EditProductPage({ params }: { params: { id: string } }) {
+export default function EditProductPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
   const [productType, setProductType] = useState("Physical");
   
   return (

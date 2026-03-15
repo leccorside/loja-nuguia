@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, use } from "react";
 import { 
   ArrowLeftIcon, 
   PlusIcon,
@@ -12,7 +12,8 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
-export default function EditCategoryPage({ params }: { params: { id: string } }) {
+export default function EditCategoryPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
   // Mock initial data based on the design
   const [themes, setThemes] = useState(["Organic", "Halal Food"]);
   const [newTheme, setNewTheme] = useState("");
