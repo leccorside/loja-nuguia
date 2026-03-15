@@ -40,7 +40,6 @@ const menuItems = [
       { label: "All Taxes", href: "/admin/products/taxes" },
     ]
   },
-  { label: "Pos System", icon: TicketIcon, href: "/admin/pos" },
   { label: "Orders", icon: ShoppingBagIcon, href: "/admin/orders", badge: "New" },
   { 
     label: "Stocks", 
@@ -62,13 +61,27 @@ const menuItems = [
       { label: "Rejected Refunds", href: "/admin/refunds/rejected" },
     ]
   },
-  { label: "Rewards & Wallet", icon: ShoppingBagIcon, href: "/admin/rewards", hasChevron: true },
 ];
 
 const userMenuItems = [
-  { label: "Customers", icon: UsersIcon, href: "/admin/customers" },
-  { label: "Employee Staffs", icon: UsersIcon, href: "/admin/staffs" },
-  { label: "Delivery Men", icon: UsersIcon, href: "/admin/delivery", hasChevron: true },
+  { 
+    label: "Customers", 
+    icon: UsersIcon, 
+    href: "/admin/customers",
+    subItems: [
+      { label: "All Customers", href: "/admin/customers" },
+      { label: "Add Customer", href: "/admin/customers/add" },
+    ]
+  },
+  { 
+    label: "Users", 
+    icon: UsersIcon, 
+    href: "/admin/users",
+    subItems: [
+      { label: "All Users", href: "/admin/users" },
+      { label: "Add User", href: "/admin/users/add" },
+    ]
+  },
 ];
 
 const contentMenuItems = [
