@@ -9,7 +9,9 @@ import {
   PlusIcon,
   PencilIcon,
   TrashIcon,
-  ListBulletIcon
+  ListBulletIcon,
+  XMarkIcon,
+  XCircleIcon
 } from "@heroicons/react/24/outline";
 
 // Mock Data for Variations
@@ -32,6 +34,7 @@ export default function VariationsPage() {
   const [statusFilter, setStatusFilter] = useState("Select Status");
   const [openMenuId, setOpenMenuId] = useState<number | null>(null);
   const [editingId, setEditingId] = useState<number | null>(null);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [variationName, setVariationName] = useState("");
   const [variations, setVariations] = useState<Variation[]>(variationsData);
 
@@ -163,7 +166,13 @@ export default function VariationsPage() {
                               Add Values
                             </Link>
                             <div className="h-[1px] bg-slate-50 my-1 mx-2"></div>
-                            <button className="w-full flex items-center gap-3 px-4 py-2 text-[11px] font-bold text-red-500 hover:bg-red-50 transition-colors group">
+                            <button 
+                              onClick={() => {
+                                setShowDeleteModal(true);
+                                setOpenMenuId(null);
+                              }}
+                              className="w-full flex items-center gap-3 px-4 py-2 text-[11px] font-bold text-red-500 hover:bg-red-50 transition-colors group text-left"
+                            >
                               <TrashIcon className="h-4 w-4 text-red-300 group-hover:text-red-500" />
                               Delete
                             </button>
@@ -237,6 +246,48 @@ export default function VariationsPage() {
           </div>
         </div>
       </div>
+
+      {/* Delete Confirmation Modal */}
+      {showDeleteModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-[2px] animate-in fade-in duration-200">
+          <div className="bg-white rounded-md shadow-2xl w-full max-w-md overflow-hidden animate-in zoom-in-95 duration-200 border border-gray-100">
+            {/* Modal Header */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-50 bg-gray-50/30">
+              <h3 className="text-sm font-black text-gray-800 tracking-tight">Delete Confirmation</h3>
+              <button onClick={() => setShowDeleteModal(false)} className="text-gray-400 hover:text-gray-600 transition-colors">
+                <XMarkIcon className="h-5 w-5" />
+              </button>
+            </div>
+            
+            {/* Modal Body */}
+            <div className="p-8 flex flex-col items-center text-center space-y-4">
+              <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center text-red-500 mb-2">
+                <XCircleIcon className="h-7 w-7" />
+              </div>
+              <div className="space-y-1">
+                <h4 className="text-[15px] font-black text-gray-800">Are you sure to delete this?</h4>
+                <p className="text-[11px] font-bold text-slate-400">All data related to this may get deleted.</p>
+              </div>
+            </div>
+
+            {/* Modal Footer */}
+            <div className="flex items-center justify-center gap-3 pb-8 px-8">
+              <button 
+                onClick={() => setShowDeleteModal(false)}
+                className="flex-1 px-6 py-2.5 bg-red-500 hover:bg-red-600 text-white text-[11px] font-black rounded-sm transition-all shadow-lg shadow-red-100 uppercase tracking-widest"
+              >
+                Proceed
+              </button>
+              <button 
+                onClick={() => setShowDeleteModal(false)}
+                className="flex-1 px-6 py-2.5 bg-white border border-gray-200 text-gray-500 hover:bg-gray-50 text-[11px] font-black rounded-sm transition-all uppercase tracking-widest"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
