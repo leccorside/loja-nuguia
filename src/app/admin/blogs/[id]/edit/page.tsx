@@ -18,7 +18,7 @@ import dynamic from "next/dynamic";
 // Dynamic import for TinyMCE to avoid hydration mismatch
 const Editor = dynamic(() => import("@tinymce/tinymce-react").then(mod => mod.Editor), {
   ssr: false,
-  loading: () => <div className="h-[400px] bg-gray-50 animate-pulse flex items-center justify-center font-black text-gray-300 text-[10px] uppercase">Loading Editor...</div>
+  loading: () => <div className="h-[400px] bg-gray-50 dark:bg-slate-800 animate-pulse flex items-center justify-center font-black text-gray-300 dark:text-slate-600 text-[10px] uppercase transition-colors">Loading Editor...</div>
 });
 
 const mockBlogs = [
@@ -56,20 +56,20 @@ export default function EditBlogPage() {
   };
 
   if (!blog) {
-    return <div className="p-8 text-center text-gray-400 font-black uppercase text-xs">Loading blog data...</div>;
+    return <div className="p-8 text-center text-gray-400 dark:text-slate-500 font-black uppercase text-xs transition-colors">Loading blog data...</div>;
   }
 
   return (
     <div className="space-y-6 max-w-7xl mx-auto pb-20">
       {/* Top Header */}
-      <div className="bg-white p-4 sm:p-6 rounded-sm border border-gray-100 shadow-sm flex items-center gap-4">
+      <div className="bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-sm border border-gray-100 dark:border-slate-800 shadow-sm flex items-center gap-4 transition-colors">
         <Link 
           href="/admin/blogs" 
-          className="p-2 hover:bg-gray-50 rounded-full transition-colors text-gray-400 hover:text-green-500"
+          className="p-2 hover:bg-gray-50 dark:hover:bg-slate-800 rounded-full transition-colors text-gray-400 dark:text-slate-500 hover:text-green-500 transition-colors"
         >
           <ChevronLeftIcon className="h-5 w-5" />
         </Link>
-        <h1 className="text-lg font-black text-gray-800 tracking-tight">Edit Blog</h1>
+        <h1 className="text-lg font-black text-gray-800 dark:text-gray-100 tracking-tight transition-colors">Edit Blog</h1>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -77,49 +77,49 @@ export default function EditBlogPage() {
         <div className="lg:col-span-8 space-y-6">
           
           {/* Basic Information Section */}
-          <section id="basic-info" className="bg-white p-6 rounded-sm border border-gray-100 shadow-sm space-y-6">
-            <h2 className="text-xs font-black text-gray-800 uppercase tracking-widest border-b border-gray-50 pb-4">
+          <section id="basic-info" className="bg-white dark:bg-slate-900 p-6 rounded-sm border border-gray-100 dark:border-slate-800 shadow-sm space-y-6 transition-colors">
+            <h2 className="text-xs font-black text-gray-800 dark:text-gray-100 uppercase tracking-widest border-b border-gray-50 dark:border-slate-800 pb-4 transition-colors">
               Basic Information
             </h2>
             
             <div className="space-y-6">
               {/* Themes Multi-select */}
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">
                   Themes <span className="text-red-500">*</span>
                 </label>
-                <div className="w-full p-2 bg-gray-50/50 border border-gray-100 rounded-sm flex flex-wrap gap-2 min-h-[42px]">
+                <div className="w-full p-2 bg-gray-50/50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm flex flex-wrap gap-2 min-h-[42px] transition-colors">
                   {selectedThemes.map(theme => (
-                    <span key={theme} className="flex items-center gap-1.5 px-2 py-1 bg-white border border-gray-100 rounded-sm text-[10px] font-bold text-gray-600 shadow-sm">
+                    <span key={theme} className="flex items-center gap-1.5 px-2 py-1 bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 rounded-sm text-[10px] font-bold text-gray-600 dark:text-slate-300 shadow-sm transition-colors">
                       {theme}
-                      <button onClick={() => removeTheme(theme)} className="text-gray-400 hover:text-red-500">
+                      <button onClick={() => removeTheme(theme)} className="text-gray-400 dark:text-slate-500 hover:text-red-500">
                         <XMarkIcon className="h-3 w-3" />
                       </button>
                     </span>
                   ))}
-                  <input type="text" className="flex-1 bg-transparent border-none outline-none text-xs min-w-[100px]" />
+                  <input type="text" className="flex-1 bg-transparent border-none outline-none text-xs min-w-[100px] text-gray-800 dark:text-slate-200" />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">
                   Blog Title <span className="text-red-500">*</span>
                 </label>
                 <input 
                   type="text" 
                   defaultValue={blog.title}
                   placeholder="Type blog title" 
-                  className="w-full px-4 py-2 bg-gray-50/50 border border-gray-100 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 font-medium"
+                  className="w-full px-4 py-2 bg-gray-50/50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 dark:placeholder:text-slate-600 font-medium text-gray-800 dark:text-slate-200"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">
                   Category <span className="text-red-500">*</span>
                 </label>
                 <select 
                   defaultValue={blog.category}
-                  className="w-full px-4 py-2 bg-gray-50/50 border border-gray-100 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all font-medium text-gray-500"
+                  className="w-full px-4 py-2 bg-gray-50/50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all font-medium text-gray-500 dark:text-slate-400"
                 >
                   <option>Select a category</option>
                   <option>Health</option>
@@ -128,38 +128,38 @@ export default function EditBlogPage() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Tags</label>
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">Tags</label>
                 <input 
                   type="text" 
                   defaultValue={blog.tags}
                   placeholder="Select tags" 
-                  className="w-full px-4 py-2 bg-gray-50/50 border border-gray-100 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 font-medium"
+                  className="w-full px-4 py-2 bg-gray-50/50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 dark:placeholder:text-slate-600 font-medium text-gray-800 dark:text-slate-200"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">YouTube Video Link</label>
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">YouTube Video Link</label>
                 <input 
                   type="text" 
                   defaultValue={blog.youtubeLink}
                   placeholder="https://www.youtube.com/watch?v=... " 
-                  className="w-full px-4 py-2 bg-gray-50/50 border border-gray-100 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 font-medium text-blue-500"
+                  className="w-full px-4 py-2 bg-gray-50/50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 dark:placeholder:text-slate-600 font-medium text-blue-500 dark:text-blue-400"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Short Description</label>
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">Short Description</label>
                 <textarea 
                   rows={4}
                   defaultValue={blog.shortDescription}
                   placeholder="Type your short description" 
-                  className="w-full px-4 py-3 bg-gray-50/50 border border-gray-100 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 font-medium resize-none"
+                  className="w-full px-4 py-3 bg-gray-50/50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 dark:placeholder:text-slate-600 font-medium resize-none text-gray-800 dark:text-slate-200"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Description</label>
-                <div className="border border-gray-100 rounded-sm overflow-hidden tinymce-editor-container">
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">Description</label>
+                <div className="border border-gray-100 dark:border-slate-700 rounded-sm overflow-hidden tinymce-editor-container transition-colors">
                   <Editor
                     apiKey="t1jd137wiffrno4jnz8xa25s283ynd0qncu4kekm3n1qpnq6"
                     initialValue={blog.description}
@@ -188,76 +188,76 @@ export default function EditBlogPage() {
           </section>
 
           {/* Images Section */}
-          <section id="images" className="bg-white p-6 rounded-sm border border-gray-100 shadow-sm space-y-6">
-            <h2 className="text-xs font-black text-gray-800 uppercase tracking-widest border-b border-gray-50 pb-4">
+          <section id="images" className="bg-white dark:bg-slate-900 p-6 rounded-sm border border-gray-100 dark:border-slate-800 shadow-sm space-y-6 transition-colors">
+            <h2 className="text-xs font-black text-gray-800 dark:text-gray-100 uppercase tracking-widest border-b border-gray-50 dark:border-slate-800 pb-4 transition-colors">
               Images
             </h2>
             
             <div className="space-y-8">
               <div className="space-y-3">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Thumbnail Image (300×300)</label>
-                <div className="w-full border-2 border-dashed border-gray-100 rounded-sm hover:border-green-500 transition-colors p-10 flex flex-col items-center justify-center gap-4 group cursor-pointer">
-                  <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center group-hover:bg-green-50 transition-colors">
-                    <PlusIcon className="h-6 w-6 text-gray-300 group-hover:text-green-500" />
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">Thumbnail Image (300×300)</label>
+                <div className="w-full border-2 border-dashed border-gray-100 dark:border-slate-700 rounded-sm hover:border-green-500 transition-colors p-10 flex flex-col items-center justify-center gap-4 group cursor-pointer">
+                  <div className="w-12 h-12 bg-gray-50 dark:bg-slate-800 rounded-full flex items-center justify-center group-hover:bg-green-50 dark:group-hover:bg-green-900/10 transition-colors">
+                    <PlusIcon className="h-6 w-6 text-gray-300 dark:text-slate-600 group-hover:text-green-500 transition-colors" />
                   </div>
-                  <p className="text-[11px] font-black text-gray-400 uppercase tracking-widest group-hover:text-green-500">Choose Blog Thumbnail</p>
+                  <p className="text-[11px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest group-hover:text-green-500 transition-colors">Choose Blog Thumbnail</p>
                 </div>
               </div>
 
               <div className="space-y-3">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Blog Details Image (1200×700)</label>
-                <div className="w-full border-2 border-dashed border-gray-100 rounded-sm hover:border-green-500 transition-colors p-10 flex flex-col items-center justify-center gap-4 group cursor-pointer">
-                  <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center group-hover:bg-green-50 transition-colors">
-                    <PlusIcon className="h-6 w-6 text-gray-300 group-hover:text-green-500" />
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">Blog Details Image (1200×700)</label>
+                <div className="w-full border-2 border-dashed border-gray-100 dark:border-slate-700 rounded-sm hover:border-green-500 transition-colors p-10 flex flex-col items-center justify-center gap-4 group cursor-pointer">
+                  <div className="w-12 h-12 bg-gray-50 dark:bg-slate-800 rounded-full flex items-center justify-center group-hover:bg-green-50 dark:group-hover:bg-green-900/10 transition-colors">
+                    <PlusIcon className="h-6 w-6 text-gray-300 dark:text-slate-600 group-hover:text-green-500 transition-colors" />
                   </div>
-                  <p className="text-[11px] font-black text-gray-400 uppercase tracking-widest group-hover:text-green-500">Choose Blog Details Image</p>
+                  <p className="text-[11px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest group-hover:text-green-500 transition-colors">Choose Blog Details Image</p>
                 </div>
               </div>
             </div>
           </section>
 
           {/* SEO Meta Configuration */}
-          <section id="seo" className="bg-white p-6 rounded-sm border border-gray-100 shadow-sm space-y-6">
-            <h2 className="text-xs font-black text-gray-800 uppercase tracking-widest border-b border-gray-50 pb-4">
+          <section id="seo" className="bg-white dark:bg-slate-900 p-6 rounded-sm border border-gray-100 dark:border-slate-800 shadow-sm space-y-6 transition-colors">
+            <h2 className="text-xs font-black text-gray-800 dark:text-gray-100 uppercase tracking-widest border-b border-gray-50 dark:border-slate-800 pb-4 transition-colors">
                SEO Meta Configuration
             </h2>
             
             <div className="space-y-6">
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Meta Title</label>
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">Meta Title</label>
                 <input 
                   type="text" 
                   defaultValue={blog.metaTitle}
                   placeholder="Type meta title" 
-                  className="w-full px-4 py-2 bg-gray-50/50 border border-gray-100 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 font-medium"
+                  className="w-full px-4 py-2 bg-gray-50/50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 dark:placeholder:text-slate-600 font-medium text-gray-800 dark:text-slate-200"
                 />
-                <p className="text-[8px] font-bold text-gray-400 uppercase tracking-tight italic italic">Set a meta tag title. Recommended to be simple and unique.</p>
+                <p className="text-[8px] font-bold text-gray-400 dark:text-slate-500 uppercase tracking-tight italic transition-colors">Set a meta tag title. Recommended to be simple and unique.</p>
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Meta Description</label>
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">Meta Description</label>
                 <textarea 
                   rows={4}
                   defaultValue={blog.metaDescription}
                   placeholder="Type your meta description" 
-                  className="w-full px-4 py-3 bg-gray-50/50 border border-gray-100 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 font-medium resize-none"
+                  className="w-full px-4 py-3 bg-gray-50/50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 dark:placeholder:text-slate-600 font-medium resize-none text-gray-800 dark:text-slate-200"
                 />
               </div>
 
               <div className="space-y-3">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Meta Image</label>
-                <div className="w-full h-48 border-2 border-dashed border-gray-100 rounded-sm hover:border-green-500 transition-colors flex flex-col items-center justify-center gap-4 group cursor-pointer">
-                  <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center group-hover:bg-green-50 transition-colors">
-                    <PlusIcon className="h-6 w-6 text-gray-300 group-hover:text-green-500" />
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">Meta Image</label>
+                <div className="w-full h-48 border-2 border-dashed border-gray-100 dark:border-slate-700 rounded-sm hover:border-green-500 transition-colors flex flex-col items-center justify-center gap-4 group cursor-pointer">
+                  <div className="w-12 h-12 bg-gray-50 dark:bg-slate-800 rounded-full flex items-center justify-center group-hover:bg-green-50 dark:group-hover:bg-green-900/10 transition-colors">
+                    <PlusIcon className="h-6 w-6 text-gray-300 dark:text-slate-600 group-hover:text-green-500 transition-colors" />
                   </div>
-                  <p className="text-[11px] font-black text-gray-400 uppercase tracking-widest group-hover:text-green-500">Choose Meta Image</p>
+                  <p className="text-[11px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest group-hover:text-green-500 transition-colors">Choose Meta Image</p>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Action Button */}
-          <button className="flex items-center gap-2 px-8 py-3 bg-green-500 hover:bg-green-600 text-white text-[11px] font-black rounded-sm transition-all uppercase tracking-widest shadow-lg shadow-green-100 mb-20">
+          <button className="flex items-center gap-2 px-8 py-3 bg-green-500 hover:bg-green-600 text-white text-[11px] font-black rounded-sm transition-all uppercase tracking-widest shadow-lg shadow-green-100 dark:shadow-none mb-20">
             <CheckIcon className="h-4 w-4" />
             Update Blog
           </button>
@@ -265,20 +265,20 @@ export default function EditBlogPage() {
 
         {/* Sidebar Navigation Area */}
         <div className="lg:col-span-4 space-y-6">
-          <div className="bg-white rounded-sm border border-gray-100 shadow-sm overflow-hidden sticky top-24">
-            <div className="bg-gray-50/50 px-6 py-4 border-b border-gray-100">
-              <h3 className="text-xs font-black text-gray-800 uppercase tracking-widest">
+          <div className="bg-white dark:bg-slate-900 rounded-sm border border-gray-100 dark:border-slate-800 shadow-sm overflow-hidden sticky top-24 transition-colors">
+            <div className="bg-gray-50/50 dark:bg-slate-800/50 px-6 py-4 border-b border-gray-100 dark:border-slate-800 transition-colors">
+              <h3 className="text-xs font-black text-gray-800 dark:text-gray-100 uppercase tracking-widest transition-colors">
                 Blog Information
               </h3>
             </div>
             <div className="p-6">
-              <div className="relative pl-8 space-y-10">
+              <div className="relative pl-8 space-y-10 font-bold">
                 {/* Stepper Line */}
-                <div className="absolute left-3.5 top-2 bottom-2 w-px bg-gray-100"></div>
+                <div className="absolute left-3.5 top-2 bottom-2 w-px bg-gray-100 dark:bg-slate-800 transition-colors"></div>
 
                 {/* Step 1 */}
-                <Link href="#basic-info" className="relative flex items-center group cursor-pointer">
-                  <div className="absolute -left-8 w-7 h-7 bg-green-500 rounded-full flex items-center justify-center ring-4 ring-white shadow-sm transition-transform group-hover:scale-110">
+                <Link href="#basic-info" className="relative flex items-center group cursor-pointer transition-colors">
+                  <div className="absolute -left-8 w-7 h-7 bg-green-500 rounded-full flex items-center justify-center ring-4 ring-white dark:ring-slate-900 shadow-sm transition-all group-hover:scale-110">
                     <div className="w-2 h-2 bg-white rounded-full"></div>
                   </div>
                   <div>
@@ -289,24 +289,24 @@ export default function EditBlogPage() {
                 </Link>
 
                 {/* Step 2 */}
-                <Link href="#images" className="relative flex items-center group cursor-pointer">
-                  <div className="absolute -left-8 w-7 h-7 bg-white border-2 border-gray-100 rounded-full flex items-center justify-center ring-4 ring-white shadow-sm transition-transform group-hover:scale-110">
-                    <div className="w-2 h-2 bg-gray-200 rounded-full hover:bg-green-500 transition-colors"></div>
+                <Link href="#images" className="relative flex items-center group cursor-pointer transition-colors">
+                  <div className="absolute -left-8 w-7 h-7 bg-white dark:bg-slate-800 border-2 border-gray-100 dark:border-slate-700 rounded-full flex items-center justify-center ring-4 ring-white dark:ring-slate-900 shadow-sm transition-all group-hover:scale-110">
+                    <div className="w-2 h-2 bg-gray-200 dark:bg-slate-700 rounded-full group-hover:bg-green-500 transition-colors"></div>
                   </div>
                   <div>
-                    <h4 className="text-[11px] font-black text-gray-400 hover:text-green-500 uppercase tracking-widest transition-colors leading-none">
+                    <h4 className="text-[11px] font-black text-gray-400 dark:text-slate-500 hover:text-green-500 uppercase tracking-widest transition-colors leading-none">
                       Blog Images
                     </h4>
                   </div>
                 </Link>
 
                 {/* Step 3 */}
-                <Link href="#seo" className="relative flex items-center group cursor-pointer">
-                  <div className="absolute -left-8 w-7 h-7 bg-white border-2 border-gray-100 rounded-full flex items-center justify-center ring-4 ring-white shadow-sm transition-transform group-hover:scale-110">
-                    <div className="w-2 h-2 bg-gray-200 rounded-full hover:bg-green-500 transition-colors"></div>
+                <Link href="#seo" className="relative flex items-center group cursor-pointer transition-colors">
+                  <div className="absolute -left-8 w-7 h-7 bg-white dark:bg-slate-800 border-2 border-gray-100 dark:border-slate-700 rounded-full flex items-center justify-center ring-4 ring-white dark:ring-slate-900 shadow-sm transition-all group-hover:scale-110">
+                    <div className="w-2 h-2 bg-gray-200 dark:bg-slate-700 rounded-full group-hover:bg-green-500 transition-colors"></div>
                   </div>
                   <div>
-                    <h4 className="text-[11px] font-black text-gray-400 hover:text-green-500 uppercase tracking-widest transition-colors leading-none">
+                    <h4 className="text-[11px] font-black text-gray-400 dark:text-slate-500 hover:text-green-500 uppercase tracking-widest transition-colors leading-none">
                       SEO Meta Options
                     </h4>
                   </div>

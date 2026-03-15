@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   --color-primary: #ff4949; /* Vermelho/Coral do botão Filter e badges */
   --color-secondary: #222222; /* Preto dos textos e botões */
@@ -12,8 +14,23 @@
 }
 
 :root {
+  color-scheme: light;
   --background: #ffffff;
-  --foreground: #222222;
+  --foreground: #1a1a1a;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --border: #f3f4f6;
+  --input: #f9fafb;
+}
+
+.dark {
+  color-scheme: dark;
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --card: #1e293b;
+  --card-foreground: #f8fafc;
+  --border: #334155;
+  --input: #1e293b;
 }
 
 body {
@@ -22,6 +39,7 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Custom Utilities based on the design */

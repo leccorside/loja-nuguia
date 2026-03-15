@@ -50,10 +50,10 @@ export default function AdminDashboard() {
   return (
     <div className="space-y-6">
       {/* 1. Header do Dashboard */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-6 rounded-sm border border-gray-200">
-        <h1 className="text-xl font-black text-gray-800 uppercase tracking-tight">Admin Dashboard</h1>
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white dark:bg-slate-900 p-6 rounded-sm border border-gray-200 dark:border-slate-800 transition-colors shadow-sm">
+        <h1 className="text-xl font-black text-gray-800 dark:text-gray-100 uppercase tracking-tight">Admin Dashboard</h1>
         <div className="flex items-center gap-2">
-          <button className="flex items-center gap-2 px-4 py-2 border border-border text-[10px] font-bold text-gray-500 uppercase rounded hover:bg-gray-50 transition-colors">
+          <button className="flex items-center gap-2 px-4 py-2 border border-border dark:border-slate-700 text-[10px] font-bold text-gray-500 dark:text-slate-400 uppercase rounded hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
             <ShoppingCartIcon className="h-4 w-4" />
             Manage Sales
           </button>
@@ -67,7 +67,7 @@ export default function AdminDashboard() {
       {/* 2. Top Stats Grid (Charts) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {/* Total Earning Chart Card */}
-        <div className="bg-white p-4 sm:p-6 rounded-sm border border-gray-200">
+        <div className="bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-sm border border-gray-200 dark:border-slate-800 transition-colors shadow-sm">
            <div className="flex justify-between items-center mb-4">
              <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Total Earning</p>
              <div className="flex items-center gap-1 cursor-pointer">
@@ -75,7 +75,7 @@ export default function AdminDashboard() {
                 <ChevronRightIcon className="h-3 w-3 rotate-90 text-gray-400" />
              </div>
            </div>
-           <p className="text-2xl font-black text-gray-800 tracking-tight">$84,320.01</p>
+           <p className="text-2xl font-black text-gray-800 dark:text-gray-100 tracking-tight">$84,320.01</p>
            {/* Mini Line Chart Placeholder */}
            <div className="h-24 mt-4 flex items-end">
              <svg className="w-full h-full" preserveAspectRatio="none">
@@ -96,9 +96,9 @@ export default function AdminDashboard() {
         </div>
 
         {/* Categories Pie Card */}
-        <div className="bg-white p-4 sm:p-6 rounded-sm border border-gray-200">
+        <div className="bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-sm border border-gray-200 dark:border-slate-800 transition-colors shadow-sm">
            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Top 5 Category Sales</p>
-           <p className="text-2xl font-black text-gray-800 tracking-tight mb-4">1685</p>
+           <p className="text-2xl font-black text-gray-800 dark:text-gray-100 tracking-tight mb-4">1685</p>
            <div className="flex items-center gap-6">
              <div className="relative h-28 w-28 shrink-0">
                <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
@@ -119,9 +119,9 @@ export default function AdminDashboard() {
         </div>
 
         {/* Orders Bar Card */}
-        <div className="bg-white p-4 sm:p-6 rounded-sm border border-gray-200">
+        <div className="bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-sm border border-gray-200 dark:border-slate-800 transition-colors shadow-sm">
            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Last 30 Days Orders</p>
-           <p className="text-2xl font-black text-gray-800 tracking-tight mb-8">21</p>
+           <p className="text-2xl font-black text-gray-800 dark:text-gray-100 tracking-tight mb-8">21</p>
            <div className="flex items-end gap-1.5 h-20">
              {[20, 40, 30, 60, 45, 15, 35, 70, 40, 30, 20, 80, 50, 60, 25, 40, 10, 50].map((h, i) => (
                 <div key={i} className="flex-1 bg-blue-500 rounded-t-[1px]" style={{ height: `${h}%` }}></div>
@@ -130,8 +130,8 @@ export default function AdminDashboard() {
         </div>
 
         {/* Top Selling Products Card */}
-        <div className="bg-white p-4 sm:p-6 rounded-sm border border-gray-200 lg:row-span-2">
-           <p className="text-sm font-black text-gray-800 uppercase tracking-tight mb-1">Top Selling Products</p>
+        <div className="bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-sm border border-gray-200 dark:border-slate-800 transition-colors shadow-sm lg:row-span-2">
+           <p className="text-sm font-black text-gray-800 dark:text-gray-100 uppercase tracking-tight mb-1">Top Selling Products</p>
            <p className="text-[10px] font-bold text-gray-400 mb-6 italic">We have listed 44 total products.</p>
            <div className="space-y-6">
              {topProducts.map((p, i) => (
@@ -152,9 +152,9 @@ export default function AdminDashboard() {
         </div>
 
         {/* Sales This Month Large Chart Card */}
-        <div className="md:col-span-2 lg:col-span-3 bg-white p-4 sm:p-6 rounded-sm border border-gray-200">
+        <div className="md:col-span-2 lg:col-span-3 bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-sm border border-gray-200 dark:border-slate-800 transition-colors shadow-sm">
            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Sales This Months</p>
-           <p className="text-xl font-black text-gray-800 tracking-tight mb-8">$156,485.03</p>
+           <p className="text-xl font-black text-gray-800 dark:text-gray-100 tracking-tight mb-8">$156,485.03</p>
            <div className="h-64 relative flex flex-col pt-4">
               {/* Y-Axis Labels as in image */}
               <div className="absolute left-0 top-0 bottom-8 flex flex-col justify-between text-[10px] font-bold text-gray-300 leading-none">
@@ -201,12 +201,12 @@ export default function AdminDashboard() {
           { label: "Order Processing", val: "0", icon: ArrowPathIcon, color: "text-blue-600", light: "bg-blue-50" },
           { label: "Total Delivered", val: "136", icon: CheckCircleIcon, color: "text-green-600", light: "bg-green-50" },
         ].map((c, i) => (
-          <div key={i} className="bg-white p-5 flex items-center gap-6 rounded-sm border border-gray-200">
-            <div className={`p-4 rounded-sm ${c.light}`}>
+          <div key={i} className="bg-white dark:bg-slate-900 p-5 flex items-center gap-6 rounded-sm border border-gray-200 dark:border-slate-800 shadow-sm transition-colors">
+            <div className={`p-4 rounded-sm ${c.light} dark:bg-slate-800`}>
                <c.icon className={`h-6 w-6 ${c.color}`} />
             </div>
             <div>
-               <p className="text-xl font-black text-gray-800 tracking-tight">{c.val}</p>
+               <p className="text-xl font-black text-gray-800 dark:text-gray-100 tracking-tight">{c.val}</p>
                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{c.label}</p>
             </div>
           </div>
@@ -214,10 +214,10 @@ export default function AdminDashboard() {
       </div>
 
       {/* 4. Recent Orders Table */}
-      <div className="bg-white rounded-sm border border-gray-200">
-        <div className="p-6 flex justify-between items-center border-b border-gray-100">
+      <div className="bg-white dark:bg-slate-900 rounded-sm border border-gray-200 dark:border-slate-800 transition-colors shadow-sm">
+        <div className="p-6 flex justify-between items-center border-b border-gray-100 dark:border-slate-800">
           <div>
-            <h2 className="text-sm font-black text-gray-800 uppercase tracking-tight mb-1">Recent Orders</h2>
+            <h2 className="text-sm font-black text-gray-800 dark:text-gray-100 uppercase tracking-tight mb-1">Recent Orders</h2>
             <p className="text-[10px] font-semibold text-gray-400 italic">Your 10 Most Recent Orders</p>
           </div>
           <button className="flex items-center gap-2 px-6 py-2 bg-green-600 text-[10px] font-bold text-white uppercase rounded hover:bg-green-700 transition-colors shadow-lg shadow-green-600/20">
@@ -227,7 +227,7 @@ export default function AdminDashboard() {
         </div>
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-[#f8f9fa] border-b border-gray-200">
+            <thead className="bg-[#f8f9fa] dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700">
               <tr className="text-left">
                 <th className="px-6 py-4 text-[10px] font-black text-gray-500 uppercase tracking-widest">Order Code</th>
                 <th className="px-6 py-4 text-[10px] font-black text-gray-500 uppercase tracking-widest">Customer</th>
@@ -239,7 +239,7 @@ export default function AdminDashboard() {
                 <th className="px-6 py-4 text-[10px] font-black text-gray-500 uppercase tracking-widest">Action</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-100 text-xs font-semibold text-gray-600">
+            <tbody className="divide-y divide-gray-100 dark:divide-slate-800 text-xs font-semibold text-gray-600">
               {recentOrders.map((order, i) => (
                 <tr key={i} className="hover:bg-gray-50 transition-colors">
                   <td className="px-6 py-4 text-[10px] font-bold text-gray-500">{order.id}</td>
@@ -308,12 +308,12 @@ export default function AdminDashboard() {
           { label: "Total Subscribers", val: "3", icon: EnvelopeIcon, color: "text-yellow-800", bg: "bg-yellow-100" },
           { label: "Total Categories", val: "22", icon: Squares2X2Icon, color: "text-green-800", bg: "bg-green-100" },
         ].map((m, i) => (
-          <div key={i} className="bg-white p-5 flex items-center gap-6 rounded-sm border border-gray-200">
-            <div className={`p-4 rounded-full ${m.bg}`}>
+          <div key={i} className="bg-white dark:bg-slate-900 p-5 flex items-center gap-6 rounded-sm border border-gray-200 dark:border-slate-800 shadow-sm transition-colors">
+            <div className={`p-4 rounded-full ${m.bg} dark:bg-slate-800`}>
                <m.icon className={`h-6 w-6 ${m.color}`} />
             </div>
             <div>
-               <p className="text-xl font-black text-gray-800 tracking-tight leading-none mb-1">{m.val}</p>
+               <p className="text-xl font-black text-gray-800 dark:text-gray-100 tracking-tight leading-none mb-1">{m.val}</p>
                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{m.label}</p>
             </div>
           </div>

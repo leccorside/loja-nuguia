@@ -111,8 +111,31 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [expandedMenus, setExpandedMenus] = useState<string[]>([]);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
   const pathname = usePathname();
   const profileRef = useRef<HTMLDivElement>(null);
+
+  // Tema inicial do localStorage
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("admin-theme") as "light" | "dark" | null;
+    if (savedTheme) {
+      setTheme(savedTheme);
+      if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("admin-theme", newTheme);
+    if (newTheme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  };
 
   // Definir estado inicial baseado na tela
   useEffect(() => {
@@ -186,7 +209,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         
         {/* Sub Items */}
         {hasSubItems && isExpanded && (
-          <div className="bg-gray-50/30 pb-2">
+          <div className="bg-gray-50/50 dark:bg-slate-900/50 pb-2 transition-colors">
             {item.subItems.map((sub: any) => (
               <Link
                 key={sub.label}
@@ -195,7 +218,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                   if (window.innerWidth < 1024) setIsSidebarOpen(false);
                 }}
                 className={`flex items-center gap-3 pl-14 py-2.5 text-[11px] font-bold transition-colors ${
-                  pathname === sub.href ? "text-green-600" : "text-gray-400 hover:text-green-600"
+                  pathname === sub.href ? "text-green-600 dark:text-green-400" : "text-gray-400 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-400"
                 }`}
               >
                 <span className="opacity-40">-</span>
@@ -209,7 +232,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   };
 
   return (
-    <div className="min-h-screen bg-[#f8f9fa] flex">
+    <div className="min-h-screen bg-[#f8f9fa] dark:bg-[#0f172a] flex transition-colors duration-300">
       {/* Overlay para Mobile */}
       {isSidebarOpen && (
         <div 
@@ -219,16 +242,16 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       )}
 
       {/* Sidebar */}
-      <aside className={`fixed inset-y-0 left-0 bg-white border-r border-gray-100 transition-all duration-300 z-[70] 
+      <aside className={`fixed inset-y-0 left-0 bg-white dark:bg-[#1e293b] border-r border-gray-100 dark:border-slate-800 transition-all duration-300 z-[70] 
         ${isSidebarOpen ? "translate-x-0 w-64 shadow-xl lg:shadow-none" : "-translate-x-full w-64 lg:translate-x-0 lg:w-0"} 
-        lg:static flex flex-col h-screen overflow-hidden`}>
+        lg:static flex flex-col h-screen overflow-hidden text-gray-800 dark:text-slate-200`}>
         {/* Logo */}
         <div className="p-6 flex items-center justify-between shrink-0">
           <Link href="/admin" className="flex items-center gap-2">
             <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-green-200">
                <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current"><path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z" /></svg>
             </div>
-            <span className="text-xl font-bold text-gray-800 tracking-tight">Grostore</span>
+            <span className="text-xl font-bold text-gray-800 dark:text-white tracking-tight">Grostore</span>
           </Link>
           <button onClick={() => setIsSidebarOpen(false)} className="lg:hidden text-gray-400 p-1 hover:text-green-500 transition-colors">
             <XMarkIcon className="h-6 w-6" />
@@ -236,13 +259,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </div>
 
         {/* User Profile Info */}
-        <div className="px-6 py-4 border-b border-gray-100 bg-gray-50/10 flex items-center gap-3 shrink-0">
-          <div className="w-10 h-10 rounded-full bg-gray-200 overflow-hidden border-2 border-green-500 shrink-0 shadow-sm">
+        <div className="px-6 py-4 border-b border-gray-100 dark:border-slate-800 bg-gray-50/10 dark:bg-slate-800/50 flex items-center gap-3 shrink-0">
+          <div className="w-10 h-10 rounded-full bg-gray-200 dark:bg-slate-700 overflow-hidden border-2 border-green-500 shrink-0 shadow-sm">
              <img src="https://i.pravatar.cc/100?u=admin" alt="Admin" className="w-full h-full object-cover" />
           </div>
           <div className="truncate">
-            <p className="text-sm font-black text-gray-800 leading-tight">Admin User</p>
-            <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest leading-tight">Super Admin</p>
+            <p className="text-sm font-black text-gray-800 dark:text-slate-100 leading-tight">Admin User</p>
+            <p className="text-[10px] text-gray-400 dark:text-slate-400 font-bold uppercase tracking-widest leading-tight">Super Admin</p>
           </div>
         </div>
 
@@ -276,9 +299,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       </aside>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col h-screen min-w-0 overflow-hidden">
+      <div className="flex-1 flex flex-col h-screen min-w-0 overflow-hidden bg-[#f8f9fa] dark:bg-[#0f172a] transition-colors duration-300">
         {/* Topbar compacta como na imagem */}
-        <header className="h-14 bg-white border-b border-gray-100 flex items-center justify-between px-4 sticky top-0 z-50 shrink-0">
+        <header className="h-14 bg-white dark:bg-[#1e293b] border-b border-gray-100 dark:border-slate-800 flex items-center justify-between px-4 sticky top-0 z-50 shrink-0 transition-colors duration-300">
           <div className="flex items-center gap-3">
             <button 
               onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -294,20 +317,27 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </div>
 
           <div className="flex items-center gap-2 sm:gap-4 h-full">
-            <Link href="/" className="flex items-center gap-1.5 px-2 py-1 hover:bg-gray-50 rounded-sm text-[11px] font-bold text-gray-600 transition-colors uppercase tracking-tight whitespace-nowrap">
-               <ArrowTopRightOnSquareIcon className="h-4 w-4 text-gray-400" />
+            <Link href="/" className="flex items-center gap-1.5 px-2 py-1 hover:bg-gray-50 dark:hover:bg-slate-800 rounded-sm text-[11px] font-bold text-gray-600 dark:text-slate-300 transition-colors uppercase tracking-tight whitespace-nowrap">
+               <ArrowTopRightOnSquareIcon className="h-4 w-4 text-gray-400 dark:text-slate-500" />
                <span className="hidden sm:inline">Visit Store</span>
             </Link>
             
-            <div className="h-4 w-[1px] bg-gray-100 hidden sm:block"></div>
+            <div className="h-4 w-[1px] bg-gray-100 dark:bg-slate-800 hidden sm:block"></div>
 
-            <button className="p-1.5 text-gray-600 hover:text-green-600 transition-colors">
-              <MoonIcon className="h-5 w-5" />
+            <button 
+              onClick={toggleTheme}
+              className="p-1.5 text-gray-600 dark:text-slate-300 hover:text-green-600 transition-colors"
+            >
+              {theme === "light" ? (
+                <MoonIcon className="h-5 w-5" />
+              ) : (
+                <SunIcon className="h-5 w-5" />
+              )}
             </button>
             
-            <button className="relative p-1.5 text-gray-600 hover:text-green-600 transition-colors group">
+            <button className="relative p-1.5 text-gray-600 dark:text-slate-300 hover:text-green-600 transition-colors group">
               <BellIcon className="h-5 w-5" />
-              <span className="absolute top-1.5 right-1.5 w-3 h-3 bg-red-400 border-2 border-white rounded-full scale-90 animate-pulse"></span>
+              <span className="absolute top-1.5 right-1.5 w-3 h-3 bg-red-400 border-2 border-white dark:border-slate-800 rounded-full scale-90 animate-pulse"></span>
             </button>
 
             <div className="relative" ref={profileRef}>
@@ -315,14 +345,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 onClick={() => setIsProfileOpen(!isProfileOpen)}
                 className="relative cursor-pointer group px-1 flex items-center"
               >
-                <div className="w-8 h-8 rounded-full bg-gray-200 overflow-hidden border border-gray-200 relative hover:border-green-500 transition-colors">
+                <div className="w-8 h-8 rounded-full bg-gray-200 dark:bg-slate-700 overflow-hidden border border-gray-200 dark:border-slate-700 relative hover:border-green-500 transition-colors">
                   <img src="https://i.pravatar.cc/100?u=admin" alt="Admin" className="w-full h-full object-cover" />
-                  <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 border-2 border-white rounded-full"></div>
+                  <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 border-2 border-white dark:border-slate-800 rounded-full"></div>
                 </div>
               </div>
 
               {isProfileOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-100 rounded-sm shadow-xl z-[100] animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800 rounded-sm shadow-xl z-[100] animate-in fade-in slide-in-from-top-2 duration-200 transition-colors">
                   <div className="p-2 space-y-1">
                     <Link 
                       href="/admin/profile" 
@@ -362,7 +392,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </div>
           
           {/* Footer Admin agora dentro do scroll */}
-          <footer className="py-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] font-bold text-gray-400 border-t border-gray-100 mt-12 uppercase tracking-widest text-center sm:text-left">
+          <footer className="py-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] font-bold text-gray-400 dark:text-slate-500 border-t border-gray-100 dark:border-slate-800 mt-12 uppercase tracking-widest text-center sm:text-left">
             <p>© All Designed, Developed and ❤️ by <span className="text-orange-500">ThemeTags</span></p>
             <p>Grostore Online Store <span className="text-gray-600">v4.6.0</span></p>
           </footer>

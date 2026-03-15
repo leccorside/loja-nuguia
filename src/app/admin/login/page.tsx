@@ -8,17 +8,17 @@ export default function AdminLoginPage() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#f8f9fa] flex items-center justify-center p-6">
-      <div className="w-full max-w-md bg-white rounded-sm border border-gray-200 shadow-2xl p-8 space-y-8">
+    <div className="min-h-screen bg-[#f8f9fa] dark:bg-slate-950 flex items-center justify-center p-6 transition-colors">
+      <div className="w-full max-w-md bg-white dark:bg-slate-900 rounded-sm border border-gray-200 dark:border-slate-800 shadow-2xl p-8 space-y-8 transition-colors">
         
         {/* Branding */}
         <div className="text-center space-y-2">
-          <Link href="/admin" className="flex items-center justify-center gap-2 mb-6">
-            <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-2xl">G</div>
-            <span className="text-2xl font-bold text-gray-800 tracking-tight">Grostore</span>
+          <Link href="/admin" className="flex items-center justify-center gap-2 mb-6 transition-colors">
+            <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-green-500/20">G</div>
+            <span className="text-2xl font-bold text-gray-800 dark:text-gray-100 tracking-tight">Grostore</span>
           </Link>
-          <h1 className="text-2xl font-black text-gray-800 uppercase tracking-tight">Admin Login</h1>
-          <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest">Acesso Restrito ao Painel</p>
+          <h1 className="text-2xl font-black text-gray-800 dark:text-gray-100 uppercase tracking-tight transition-colors">Admin Login</h1>
+          <p className="text-xs font-semibold text-gray-400 dark:text-slate-500 uppercase tracking-widest transition-colors">Acesso Restrito ao Painel</p>
         </div>
 
         {/* Login Form */}
@@ -26,31 +26,31 @@ export default function AdminLoginPage() {
           <div className="space-y-4">
             {/* Email Field */}
             <div className="space-y-1">
-              <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Email Address</label>
+              <label className="text-[10px] font-bold text-gray-400 dark:text-slate-500 uppercase tracking-widest">Email Address</label>
               <div className="relative">
-                <EnvelopeIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-300" />
+                <EnvelopeIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-300 dark:text-slate-600" />
                 <input 
                   type="email" 
                   placeholder="admin@grostore.com"
-                  className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-100 rounded-sm text-sm focus:ring-1 focus:ring-green-500 focus:border-green-500 transition-all outline-none text-gray-700"
+                  className="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm text-sm focus:ring-1 focus:ring-green-500 focus:border-green-500 transition-all outline-none text-gray-700 dark:text-slate-200 placeholder:text-gray-300 dark:placeholder:text-slate-600"
                 />
               </div>
             </div>
 
             {/* Password Field */}
             <div className="space-y-1">
-              <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Password</label>
+              <label className="text-[10px] font-bold text-gray-400 dark:text-slate-500 uppercase tracking-widest">Password</label>
               <div className="relative">
-                <LockClosedIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-300" />
+                <LockClosedIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-300 dark:text-slate-600" />
                 <input 
                   type={showPassword ? "text" : "password"} 
                   placeholder="••••••••"
-                  className="w-full pl-10 pr-12 py-3 bg-gray-50 border border-gray-100 rounded-sm text-sm focus:ring-1 focus:ring-green-500 focus:border-green-500 transition-all outline-none text-gray-700"
+                  className="w-full pl-10 pr-12 py-3 bg-gray-50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm text-sm focus:ring-1 focus:ring-green-500 focus:border-green-500 transition-all outline-none text-gray-700 dark:text-slate-200 placeholder:text-gray-300 dark:placeholder:text-slate-600"
                 />
                 <button 
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-300 hover:text-green-600 transition-colors"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-300 dark:text-slate-500 hover:text-green-600 transition-colors"
                 >
                   {showPassword ? <EyeSlashIcon className="h-5 w-5" /> : <EyeIcon className="h-5 w-5" />}
                 </button>
@@ -61,8 +61,8 @@ export default function AdminLoginPage() {
           {/* Remember & Forgot */}
           <div className="flex items-center justify-between">
             <label className="flex items-center gap-2 cursor-pointer group">
-              <input type="checkbox" className="w-4 h-4 border-gray-200 rounded text-green-600 focus:ring-green-500 cursor-pointer" />
-              <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest group-hover:text-green-600 transition-colors">Remember Me</span>
+              <input type="checkbox" className="w-4 h-4 border-gray-200 dark:border-slate-700 rounded text-green-600 focus:ring-green-500 cursor-pointer dark:bg-slate-800" />
+              <span className="text-[10px] font-bold text-gray-400 dark:text-slate-500 uppercase tracking-widest group-hover:text-green-600 transition-colors">Remember Me</span>
             </label>
             <Link href="#" className="text-[10px] font-bold text-green-600 uppercase tracking-widest hover:underline decoration-2 underline-offset-4">Forgot Password?</Link>
           </div>
@@ -78,7 +78,7 @@ export default function AdminLoginPage() {
 
         {/* Footer Info */}
         <div className="pt-6 text-center">
-           <p className="text-[10px] font-medium text-gray-400">
+           <p className="text-[10px] font-medium text-gray-400 dark:text-slate-500 transition-colors">
              © 2026 Grostore. Built with ❤️ for Admins.
            </p>
         </div>

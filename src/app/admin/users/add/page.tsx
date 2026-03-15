@@ -57,91 +57,91 @@ export default function AddUserPage() {
   return (
     <div className="space-y-6 max-w-7xl mx-auto pb-20">
       {/* Top Header */}
-      <div className="bg-white p-4 sm:p-6 rounded-sm border border-gray-100 shadow-sm flex items-center gap-4">
+      <div className="bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-sm border border-gray-100 dark:border-slate-800 shadow-sm flex items-center gap-4 transition-colors">
         <Link 
           href="/admin/users" 
-          className="p-2 hover:bg-gray-50 rounded-full transition-colors text-gray-400 hover:text-green-500"
+          className="p-2 hover:bg-gray-50 dark:hover:bg-slate-800 rounded-full transition-colors text-gray-400 dark:text-slate-500 hover:text-green-500 transition-colors"
         >
           <ChevronLeftIcon className="h-5 w-5" />
         </Link>
-        <h1 className="text-lg font-black text-gray-800 tracking-tight">Add New User</h1>
+        <h1 className="text-lg font-black text-gray-800 dark:text-gray-100 tracking-tight transition-colors">Add New User</h1>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Main Content Area */}
         <div className="lg:col-span-8 space-y-6">
           {/* Basic Information Section */}
-          <section className="bg-white p-6 rounded-sm border border-gray-100 shadow-sm space-y-6">
-            <h2 className="text-xs font-black text-gray-800 uppercase tracking-widest border-b border-gray-50 pb-4">
+          <section className="bg-white dark:bg-slate-900 p-6 rounded-sm border border-gray-100 dark:border-slate-800 shadow-sm space-y-6 transition-colors">
+            <h2 className="text-xs font-black text-gray-800 dark:text-gray-100 uppercase tracking-widest border-b border-gray-50 dark:border-slate-800 pb-4 transition-colors">
               Basic Information
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2 col-span-2">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">
                   Name <span className="text-red-500">*</span>
                 </label>
                 <input 
                   type="text" 
                   placeholder="Type user name" 
-                  className="w-full px-4 py-2 bg-gray-50/50 border border-gray-100 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 font-medium"
+                  className="w-full px-4 py-2 bg-gray-50/50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 dark:placeholder:text-slate-600 font-medium text-gray-800 dark:text-gray-200 transition-colors"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">
                   Email <span className="text-red-500">*</span>
                 </label>
                 <input 
                   type="email" 
                   placeholder="Type user email" 
-                  className="w-full px-4 py-2 bg-gray-50/50 border border-gray-100 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 font-medium"
+                  className="w-full px-4 py-2 bg-gray-50/50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 dark:placeholder:text-slate-600 font-medium text-gray-800 dark:text-gray-200 transition-colors"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">
                   Phone
                 </label>
                 <input 
                   type="text" 
                   placeholder="Type user phone" 
-                  className="w-full px-4 py-2 bg-gray-50/50 border border-gray-100 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 font-medium"
+                  className="w-full px-4 py-2 bg-gray-50/50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 dark:placeholder:text-slate-600 font-medium text-gray-800 dark:text-gray-200 transition-colors"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">
                   CPF <span className="text-red-500">*</span>
                 </label>
                 <input 
                   type="text" 
                   placeholder="Type CPF" 
-                  className="w-full px-4 py-2 bg-gray-50/50 border border-gray-100 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 font-medium"
+                  className="w-full px-4 py-2 bg-gray-50/50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 dark:placeholder:text-slate-600 font-medium text-gray-800 dark:text-gray-200 transition-colors"
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">
                   RG <span className="text-red-500">*</span>
                 </label>
                 <input 
                   type="text" 
                   placeholder="Type RG" 
-                  className="w-full px-4 py-2 bg-gray-50/50 border border-gray-100 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 font-medium"
+                  className="w-full px-4 py-2 bg-gray-50/50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 dark:placeholder:text-slate-600 font-medium text-gray-800 dark:text-gray-200 transition-colors"
                 />
               </div>
             </div>
           </section>
 
           {/* Delivery Information Section */}
-          <section className="bg-white p-6 rounded-sm border border-gray-100 shadow-sm space-y-6">
-            <h2 className="text-xs font-black text-gray-800 uppercase tracking-widest border-b border-gray-50 pb-4">
+          <section className="bg-white dark:bg-slate-900 p-6 rounded-sm border border-gray-100 dark:border-slate-800 shadow-sm space-y-6 transition-colors">
+            <h2 className="text-xs font-black text-gray-800 dark:text-gray-100 uppercase tracking-widest border-b border-gray-50 dark:border-slate-800 pb-4 transition-colors">
               Informações de Entrega
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">
                   CEP {loadingCep && <span className="ml-2 text-green-500 animate-pulse text-[8px]">Fetching...</span>}
                 </label>
                 <input 
@@ -149,107 +149,107 @@ export default function AddUserPage() {
                   value={addressData.cep}
                   onChange={handleCepChange}
                   placeholder="Digite o CEP" 
-                  className="w-full px-4 py-2 bg-gray-50/50 border border-gray-100 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 font-medium"
+                  className="w-full px-4 py-2 bg-gray-50/50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 dark:placeholder:text-slate-600 font-medium text-gray-800 dark:text-gray-200 transition-colors"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Endereço</label>
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">Endereço</label>
                 <input 
                   type="text" 
                   value={addressData.street}
                   onChange={(e) => setAddressData(prev => ({ ...prev, street: e.target.value }))}
                   placeholder="Digite o endereço" 
-                  className="w-full px-4 py-2 bg-gray-50/50 border border-gray-100 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 font-medium"
+                  className="w-full px-4 py-2 bg-gray-50/50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 dark:placeholder:text-slate-600 font-medium text-gray-800 dark:text-gray-200 transition-colors"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Número</label>
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">Número</label>
                 <input 
                   type="text" 
                   value={addressData.number}
                   onChange={(e) => setAddressData(prev => ({ ...prev, number: e.target.value }))}
                   placeholder="Digite o número" 
-                  className="w-full px-4 py-2 bg-gray-50/50 border border-gray-100 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 font-medium"
+                  className="w-full px-4 py-2 bg-gray-50/50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 dark:placeholder:text-slate-600 font-medium text-gray-800 dark:text-gray-200 transition-colors"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Bairro</label>
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">Bairro</label>
                 <input 
                   type="text" 
                   value={addressData.neighborhood}
                   onChange={(e) => setAddressData(prev => ({ ...prev, neighborhood: e.target.value }))}
                   placeholder="Digite o bairro" 
-                  className="w-full px-4 py-2 bg-gray-50/50 border border-gray-100 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 font-medium"
+                  className="w-full px-4 py-2 bg-gray-50/50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 dark:placeholder:text-slate-600 font-medium text-gray-800 dark:text-gray-200 transition-colors"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Cidade</label>
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">Cidade</label>
                 <input 
                   type="text" 
                   value={addressData.city}
                   onChange={(e) => setAddressData(prev => ({ ...prev, city: e.target.value }))}
                   placeholder="Digite a cidade" 
-                  className="w-full px-4 py-2 bg-gray-50/50 border border-gray-100 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 font-medium"
+                  className="w-full px-4 py-2 bg-gray-50/50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 dark:placeholder:text-slate-600 font-medium text-gray-800 dark:text-gray-200 transition-colors"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Estado</label>
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">Estado</label>
                 <input 
                   type="text" 
                   value={addressData.state}
                   onChange={(e) => setAddressData(prev => ({ ...prev, state: e.target.value }))}
                   placeholder="Digite o estado" 
-                  className="w-full px-4 py-2 bg-gray-50/50 border border-gray-100 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 font-medium"
+                  className="w-full px-4 py-2 bg-gray-50/50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 dark:placeholder:text-slate-600 font-medium text-gray-800 dark:text-gray-200 transition-colors"
                 />
               </div>
             </div>
           </section>
 
           {/* Authentication Section */}
-          <section className="bg-white p-6 rounded-sm border border-gray-100 shadow-sm space-y-6">
-            <h2 className="text-xs font-black text-gray-800 uppercase tracking-widest border-b border-gray-50 pb-4 flex items-center gap-2">
+          <section className="bg-white dark:bg-slate-900 p-6 rounded-sm border border-gray-100 dark:border-slate-800 shadow-sm space-y-6 transition-colors">
+            <h2 className="text-xs font-black text-gray-800 dark:text-gray-100 uppercase tracking-widest border-b border-gray-50 dark:border-slate-800 pb-4 flex items-center gap-2 transition-colors">
               <KeyIcon className="h-4 w-4 text-green-500" />
               Authentication
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2 col-span-2">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">
                   Role <span className="text-red-500">*</span>
                 </label>
                 <select 
-                  className="w-full px-4 py-2 bg-gray-50/50 border border-gray-100 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all font-medium text-gray-600"
+                  className="w-full px-4 py-2 bg-gray-50/50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all font-medium text-gray-600 dark:text-slate-400 transition-colors"
                 >
-                  <option value="">Select Role</option>
-                  <option value="SuperAdmin">SuperAdmin</option>
-                  <option value="Vendedor">Vendedor</option>
+                  <option value="" className="dark:bg-slate-900">Select Role</option>
+                  <option value="SuperAdmin" className="dark:bg-slate-900">SuperAdmin</option>
+                  <option value="Vendedor" className="dark:bg-slate-900">Vendedor</option>
                 </select>
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">
                   Senha <span className="text-red-500">*</span>
                 </label>
                 <input 
                   type="password" 
                   placeholder="Digite a senha" 
-                  className="w-full px-4 py-2 bg-gray-50/50 border border-gray-100 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 font-medium"
+                  className="w-full px-4 py-2 bg-gray-50/50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 dark:placeholder:text-slate-600 font-medium text-gray-800 dark:text-gray-200 transition-colors"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                <label className="text-[10px] font-black text-gray-400 dark:text-slate-600 uppercase tracking-widest transition-colors">
                   Confirmar Senha <span className="text-red-500">*</span>
                 </label>
                 <input 
                   type="password" 
                   placeholder="Confirme a senha" 
-                  className="w-full px-4 py-2 bg-gray-50/50 border border-gray-100 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 font-medium"
+                  className="w-full px-4 py-2 bg-gray-50/50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700 rounded-sm text-xs focus:ring-1 focus:ring-green-500 outline-none transition-all placeholder:text-gray-300 dark:placeholder:text-slate-600 font-medium text-gray-800 dark:text-gray-200 transition-colors"
                 />
               </div>
             </div>
@@ -257,7 +257,7 @@ export default function AddUserPage() {
 
           {/* Action Button */}
           <div className="flex justify-start">
-            <button className="flex items-center gap-2 px-8 py-3 bg-green-500 hover:bg-green-600 text-white text-[11px] font-black rounded-sm transition-all uppercase tracking-widest shadow-lg shadow-green-100">
+            <button className="flex items-center gap-2 px-8 py-3 bg-green-500 hover:bg-green-600 text-white text-[11px] font-black rounded-sm transition-all uppercase tracking-widest shadow-lg shadow-green-100 dark:shadow-none transition-all">
               <CheckIcon className="h-4 w-4" />
               Save User
             </button>
@@ -266,48 +266,48 @@ export default function AddUserPage() {
 
         {/* Sidebar Navigation Area */}
         <div className="lg:col-span-4 space-y-6">
-          <div className="bg-white rounded-sm border border-gray-100 shadow-sm overflow-hidden">
-            <div className="bg-gray-50/50 px-6 py-4 border-b border-gray-100">
-              <h3 className="text-xs font-black text-gray-800 uppercase tracking-widest">
+          <div className="bg-white dark:bg-slate-900 rounded-sm border border-gray-100 dark:border-slate-800 shadow-sm overflow-hidden transition-colors">
+            <div className="bg-gray-50/50 dark:bg-slate-800/50 px-6 py-4 border-b border-gray-100 dark:border-slate-800 transition-colors">
+              <h3 className="text-xs font-black text-gray-800 dark:text-gray-100 uppercase tracking-widest transition-colors">
                 User Information
               </h3>
             </div>
             <div className="p-6">
-              <div className="relative pl-8 space-y-10">
+              <div className="relative pl-8 space-y-10 font-bold">
                 {/* Stepper Line */}
-                <div className="absolute left-3.5 top-2 bottom-2 w-px bg-gray-100"></div>
+                <div className="absolute left-3.5 top-2 bottom-2 w-px bg-gray-100 dark:bg-slate-800 transition-colors"></div>
 
                 {/* Step 1 */}
-                <div className="relative flex items-center group">
-                  <div className="absolute -left-8 w-7 h-7 bg-green-500 rounded-full flex items-center justify-center ring-4 ring-white shadow-sm transition-transform group-hover:scale-110">
+                <div className="relative flex items-center group transition-colors">
+                  <div className="absolute -left-8 w-7 h-7 bg-green-500 rounded-full flex items-center justify-center ring-4 ring-white dark:ring-slate-900 shadow-sm transition-all group-hover:scale-110">
                     <div className="w-2 h-2 bg-white rounded-full"></div>
                   </div>
                   <div>
-                    <h4 className="text-[11px] font-black text-green-500 uppercase tracking-widest">
+                    <h4 className="text-[11px] font-black text-green-500 uppercase tracking-widest transition-colors">
                       Basic Information
                     </h4>
                   </div>
                 </div>
 
                 {/* Step 2 */}
-                <div className="relative flex items-center group">
-                  <div className="absolute -left-8 w-7 h-7 bg-white border-2 border-gray-100 rounded-full flex items-center justify-center ring-4 ring-white shadow-sm transition-transform group-hover:scale-110">
-                    <div className="w-2 h-2 bg-gray-200 rounded-full"></div>
+                <div className="relative flex items-center group transition-colors">
+                  <div className="absolute -left-8 w-7 h-7 bg-white dark:bg-slate-800 border-2 border-gray-100 dark:border-slate-700 rounded-full flex items-center justify-center ring-4 ring-white dark:ring-slate-900 shadow-sm transition-all group-hover:scale-110">
+                    <div className="w-2 h-2 bg-gray-200 dark:bg-slate-700 rounded-full transition-colors"></div>
                   </div>
                   <div>
-                    <h4 className="text-[11px] font-black text-gray-300 uppercase tracking-widest">
+                    <h4 className="text-[11px] font-black text-gray-300 dark:text-slate-500 uppercase tracking-widest transition-colors">
                       Delivery Information
                     </h4>
                   </div>
                 </div>
 
                 {/* Step 3 */}
-                <div className="relative flex items-center group">
-                  <div className="absolute -left-8 w-7 h-7 bg-white border-2 border-gray-100 rounded-full flex items-center justify-center ring-4 ring-white shadow-sm transition-transform group-hover:scale-110">
-                    <div className="w-2 h-2 bg-gray-200 rounded-full"></div>
+                <div className="relative flex items-center group transition-colors">
+                  <div className="absolute -left-8 w-7 h-7 bg-white dark:bg-slate-800 border-2 border-gray-100 dark:border-slate-700 rounded-full flex items-center justify-center ring-4 ring-white dark:ring-slate-900 shadow-sm transition-all group-hover:scale-110">
+                    <div className="w-2 h-2 bg-gray-200 dark:bg-slate-700 rounded-full transition-colors"></div>
                   </div>
                   <div>
-                    <h4 className="text-[11px] font-black text-gray-300 uppercase tracking-widest">
+                    <h4 className="text-[11px] font-black text-gray-300 dark:text-slate-500 uppercase tracking-widest transition-colors">
                       Authentication
                     </h4>
                   </div>
