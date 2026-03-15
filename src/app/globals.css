@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: #ff4949; /* Vermelho/Coral do botão Filter e badges */
+  --color-secondary: #222222; /* Preto dos textos e botões */
+  --color-accent: #00bacf; /* Ciano/Azul claro dos links e detalhes */
+  --color-muted: #777777; /* Cinza para textos secundários */
+  --color-border: #eeeeee; /* Cor das bordas e divisores */
+  --color-bg-gray: #f9f9f9; /* Fundo cinza claro para seções */
+  
+  --font-sans: 'Inter', sans-serif;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #222222;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Utilities based on the design */
+@layer utilities {
+  .container-custom {
+    @apply max-w-[1240px] mx-auto px-4;
+  }
+  
+  .section-padding {
+    @apply py-12 md:py-20;
+  }
+}
